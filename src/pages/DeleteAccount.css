@@ -94,3 +94,8 @@
     background: #c9302c;
   }
   
+  .error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+  }

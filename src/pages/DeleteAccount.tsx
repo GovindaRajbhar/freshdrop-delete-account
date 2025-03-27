@@ -4,12 +4,17 @@ import axios from "axios";
 import "./DeleteAccount.css";
 
 export default function DeleteAccount() {
-  const { register, handleSubmit, reset } = useForm<FormData>();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<FormData>();
   const [message, setMessage] = useState("");
 
   interface FormData {
-    name: string;
-    mobileNumber: string;
+    name?: string; // Optional field
+    mobileNumber: string; // Required field
   }
 
   const onSubmit = async (data: FormData): Promise<void> => {
@@ -52,15 +57,22 @@ export default function DeleteAccount() {
           <input
             type="text"
             placeholder="Enter your name"
-            {...register("name", { required: true })}
+            {...register("name")} // No validation (optional)
           />
 
           <label>Phone Number:</label>
           <input
             type="tel"
             placeholder="Enter your phone number"
-            {...register("mobileNumber", { required: true })}
+            {...register("mobileNumber", {
+              required: "Phone number is required",
+            })}
           />
+          {errors.mobileNumber && (
+            <p style={{ color: "red" }} className="error-message">
+              {errors.mobileNumber.message}
+            </p>
+          )}
 
           <button type="submit">Submit Request</button>
         </form>
