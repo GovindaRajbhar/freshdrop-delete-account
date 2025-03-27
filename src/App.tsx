@@ -1,4 +1,4 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import DeleteAccount from "./pages/DeleteAccount";
 import "./App.css"; // Ensure you have CSS for styling
 
