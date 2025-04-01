@@ -99,3 +99,28 @@
     font-size: 14px;
     margin-top: 5px;
   }
+
+  /* Loading spinner style */
+.loading-spinner {
+  font-size: 16px;
+  color: #007bff;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Optional spinner styling for better UX (a simple rotating circle) */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-spinner::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
