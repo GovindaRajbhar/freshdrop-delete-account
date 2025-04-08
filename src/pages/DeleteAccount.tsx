@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { useState, useEffect } from "react"; // Added useEffect
+import { useState } from "react";
 import axios from "axios";
 import "./DeleteAccount.css";
 
@@ -18,44 +18,6 @@ export default function DeleteAccount() {
     mobileNumber: string; // Required field
     password: string; // Required field for password (4-digit PIN)
   }
-
-  // Keep-alive function
-  // const pingServer = async () => {
-  //   const now = new Date();
-  //   const istHours = now.getUTCHours() + 5.5; // Convert to IST (UTC+5:30)
-
-  //   // Only ping between 6 AM (6) and 11 PM (23) IST
-  //   if (istHours >= 6 && istHours < 23) {
-  //     try {
-  //       await axios.get("https://freshsabziapi.onrender.com/api/health");
-  //       console.log(
-  //         "Keep-alive ping successful at",
-  //         now.toLocaleString("en-IN")
-  //       );
-  //     } catch (error) {
-  //       console.error("Keep-alive ping failed:", error);
-  //     }
-  //   } else {
-  //     console.log("Not pinging - outside active hours (6AM-11PM IST)");
-  //   }
-  // };
-
-  // Set up the keep-alive interval when component mounts
-  // useEffect(() => {
-  //   // First check if we're in active hours before initial ping
-  //   const now = new Date();
-  //   const istHours = now.getUTCHours() + 5.5;
-
-  //   if (istHours >= 6 && istHours < 23) {
-  //     pingServer();
-  //   }
-
-  //   // Set up regular pings every 14 minutes (600,000ms)
-  //   const intervalId = setInterval(pingServer, 14 * 60 * 1000);
-
-  //   // Clean up interval when component unmounts
-  //   return () => clearInterval(intervalId);
-  // }, []);
 
   const onSubmit = async (data: FormData): Promise<void> => {
     setLoading(true); // Set loading to true when the request starts
